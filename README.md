@@ -31,6 +31,9 @@ This project is a fork of [yodasay](https://github.com/scotttesler/yodasay), [lo
 npm i talkingyoda
 ```
 ## Usage
-```bash
-npm start
+Can be used as any other npm dependency. <br/>
+Create a js file and import the plugin:
 ```
+var talkingyoda = require('talkingyoda');
+```
+Then call js file either via the CLI
