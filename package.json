@@ -1,6 +1,6 @@
 {
   "name": "talkingyoda",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Multi-colored master yoda talking in shakespeare's poems",
   "main": "index.js",
   "scripts": {
