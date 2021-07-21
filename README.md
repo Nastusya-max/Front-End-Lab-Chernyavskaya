@@ -28,12 +28,21 @@ talkingyoda this is a multi-colored Yoda from Star Wars talking to you in Shakes
 This project is a fork of [yodasay](https://github.com/scotttesler/yodasay), [locat](https://github.com/robertmarsal/lolcatjs), [shakespeare-data](https://github.com/luketn/shakespeare-data)
 ## Install
 ```
-npm i talkingyoda
+npm install talkingyoda
 ```
-## Usage
+## Usage as a module
 Can be used as any other npm dependency. <br/>
 Create a js file and import the plugin:
 ```
 var talkingyoda = require('talkingyoda');
 ```
-Then call js file either via the CLI
+Then call js file either via the CLI <br/><br/>
+OR
+## Install
+```
+npm install -g talkingyoda
+```
+## Usage
+```
+talkingyoda
+```
