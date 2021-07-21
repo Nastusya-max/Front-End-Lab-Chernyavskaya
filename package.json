@@ -1,8 +1,11 @@
 {
   "name": "talkingyoda",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Multi-colored master yoda talking in shakespeare's poems",
   "main": "index.js",
+  "bin": { 
+    "talkingyoda": "./index.js" 
+  },
   "scripts": {
     "start": "node index.js",
     "test": "mocha"
