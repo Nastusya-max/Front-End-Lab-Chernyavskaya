@@ -1,4 +1,9 @@
 # talkingyoda
+
+## Home task
+* Implement app that contains at least one dependency and one dev dependency
+* Push code to repo “Module”
+
 ```
 _______________________________________________________
 / Who will believe my verse in time to come,            \
