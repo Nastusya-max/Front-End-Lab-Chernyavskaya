@@ -1,0 +1,30 @@
+{
+  "name": "talkingyoda",
+  "version": "1.0.4",
+  "description": "Multi-colored master yoda talking in shakespeare's poems",
+  "main": "index.js",
+  "bin": { 
+    "talkingyoda": "./index.js" 
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Chernyavskaya Anastasia",
+    "url": "https://github.com/Nastusya-max/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nastusya-max/EPAM-Front-End-Lab-Chernyavskaya.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "lolcatjs": "2.4.1",
+    "shakespeare-data": "3.0.0",
+    "yodasay": "1.1.9"
+  },
+  "devDependencies": {
+    "mocha": "9.0.2"
+  }
+}
