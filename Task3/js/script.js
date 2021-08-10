@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Function that can “add” objects');
   console.log(add(a, b, c, d));
+  console.log(add(a));
   console.log(add(a, b, d, c, a, d));
   console.log('Function that can intersect object');
   console.log(findDuplicate(a, b, c, d));
 
   function add(...objs) {
-    let result = {};
     // creating a copy of the object with the largest number of properties 
-    Object.assign(result, findLargestObj(objs));
+    let result = Object.assign({}, findLargestObj(objs));
     // all object properties are set to 0
     for (let key in result) {
       result[key] = 0;
