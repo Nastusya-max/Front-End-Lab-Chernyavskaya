@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   console.log('Function that can “add” objects');
-  add(a, b, c, d);
-  add(a, b, d, c, a, d);
+  console.log(add(a, b, c, d));
+  console.log(add(a, b, d, c, a, d));
   console.log('Function that can intersect object');
-  findDuplicate(a, b, c, d);
+  console.log(findDuplicate(a, b, c, d));
 
   function add(...objs) {
     let result = {};
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         result[key] += obj[key];
       }
     };
-    console.log(result);
+    return result;
   }
   // function finds the object with the largest number of properties and returns it
   function findLargestObj(objs) {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     // transform a list of key-value pairs into an object
-    console.log(Object.fromEntries(result));
+    return Object.fromEntries(result);
   }
   // function creates an array from the properties of all objects
   function arrFromProps(objs) {
