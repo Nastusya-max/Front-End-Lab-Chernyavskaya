@@ -26,20 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Function that can “add” objects');
   console.log(add(a, b, c, d));
+  console.log(add(a));
   console.log(add(a, b, d, c, a, d));
   console.log('Function that can intersect object');
   console.log(findDuplicate(a, b, c, d));
 
   function add(...objs) {
-    let result = {};
     // creating a copy of the object with the largest number of properties 
-    Object.assign(result, findLargestObj(objs));
+    let result = Object.assign({}, findLargestObj(objs));
     // all object properties are set to 0
     for (let key in result) {
       result[key] = 0;
     }
     // object properties are equal to the sum of properties of all objects with the same keys
-    for (var obj of objs) {
+    for (let obj of objs) {
       for (let key in obj) {
         result[key] += obj[key];
       }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let countProp = 0;
     let largestObj = {};
 
-    for (var obj of objs) {
+    for (let obj of objs) {
       if (countProp < Object.keys(obj).length) {
         countProp = Object.keys(obj).length;
         largestObj = obj;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let result = [];
     let arr = arrFromProps(objs);
 
-    for (var len = arr.length, i = len; --i >= 0;) {
+    for (let len = arr.length, i = len; --i >= 0;) {
       // counting the number of repeating elements
       if (arr[arr[i]]) {
         arr[arr[i]] += 1;
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // function creates an array from the properties of all objects
   function arrFromProps(objs) {
     let arr = [];
-    for (var obj of objs) {
+    for (let obj of objs) {
       // push to arr an array of a given object's own enumerable property [key, value] pairs
       arr.push(Object.entries(obj));
     }
