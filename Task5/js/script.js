@@ -1,16 +1,22 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
-  // creating memoized functions from pure 'range' function
+  // creating memoized functions from validSum function
   let memoizedRange = memoize(validSum);
 
-  console.log(memoizedRange(3, '-2'));
-  console.log(memoizedRange(3.5, -2));
-  console.log(memoizedRange(-2.597, '3.78'));
-  console.log(memoizedRange(9007199254740992, 0));
-  console.log(memoizedRange(5, '6px'));
-  console.log(memoizedRange(2));
+  console.log(memoizedRange(3, '-2')); //Calculating result from 2 to 3
+  console.log(memoizedRange(3.5, -2.4)); //Fetching result from 2 to 3
+  console.log(memoizedRange(-2.597, '3.78')); //Fetching result from 2 to 3
 
-  // calculating the sum of a row of integers in a given range
+  console.log(memoizedRange(-1, '2.678986554557655673')); //Calculating result from -1 to 2
+  console.log(memoizedRange(-1.67, 2.89)); //Fetching result from -1 to 2
+
+  console.log(memoizedRange(9007199254740992, 0)); //Error: number is not a safe integer
+  console.log(memoizedRange(5, '6px')); //Error: this is not a number
+  console.log(memoizedRange(2)); //Error: the function must take two arguments
+  console.log(memoizedRange(0, 9007199254740991)); //Error: result more or less than the maximum safe integer value
+  console.log(memoizedRange(-9007199254740991, 0)); //Error: result more or less than the maximum safe integer value
+
+  // pure function calculating the sum of a row of integers in a given range
   function range(min, max) {
     return (max * (max + 1) / 2 - min * (min - 1) / 2);
   }
@@ -72,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         err.message = 'Precision may be lost.';
         throw err;
       } else {
-        validArgs.push(Math.floor(arg));
+        validArgs.push(Math.trunc(arg));
       }
     }
     return validArgs;
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let err = {};
 
     if (!Number.isSafeInteger(range(min, max))) {
-      err.name = 'The result exceeds the maximum safe integer valueexceeds the maximum safe integer value';
+      err.name = 'Result more or less than the maximum safe integer value';
       err.message = 'There should not be such a wide range between numbers.';
       throw err;
     }
