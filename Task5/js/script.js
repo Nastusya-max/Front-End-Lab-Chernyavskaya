@@ -1,13 +1,14 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
   // creating memoized functions from pure 'range' function
-  let memoizedRange = memoize(range);
+  let memoizedRange = memoize(validSum);
 
-  console.log(memoizedRange(3.5, '-2'));
+  console.log(memoizedRange(3, '-2'));
   console.log(memoizedRange(3.5, -2));
   console.log(memoizedRange(-2.597, '3.78'));
-  console.log(memoizedRange(1, -2));
+  console.log(memoizedRange(9007199254740992, 0));
   console.log(memoizedRange(5, '6px'));
+  console.log(memoizedRange(2));
 
   // calculating the sum of a row of integers in a given range
   function range(min, max) {
@@ -19,18 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let cache = {};
     return (...args) => {
       console.log(`Preset numbers: ${args[0]}, ${args[1]};`);
-      
+
       let a = validArgs(args)[0];
       let b = validArgs(args)[1];
       let min;
       let max;
-      // finding max and min and discarding the fractional part of a number
+
       a > b ? (
-        min = b | 0,
-        max = a | 0
+        min = b,
+        max = a
       ) : (
-        min = a | 0,
-        max = b | 0
+        min = a,
+        max = b
       );
 
       console.log(`Lower limit: ${min}, upper limit: ${max};`);
@@ -45,40 +46,48 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Calculating result:');
         let sum = fn(min, max);
         cache[key] = sum;
-        return validSum(sum);
+        return sum;
       }
     }
   }
   // checks the validity of the arguments
   function validArgs(args) {
     let err = {};
+    let validArgs = [];
 
     if (args.length != 2) {
       err.name = 'Wrong number of arguments!';
       err.message = 'The function must take two arguments.';
       throw err;
-    } else {
-      for (let arg of args) {
-        if (isNaN((+arg))) {
-          err.name = 'This is not a number!';
-          err.message = 'Pass only numbers to the function.';
-          throw err;
-        }
-      }
-      return args;
     }
+
+    for (let arg of args) {
+      if (isNaN((+arg))) {
+        err.name = 'This is not a number!';
+        err.message = 'Pass only numbers to the function.';
+        throw err;
+      }
+      else if (arg > Number.MAX_SAFE_INTEGER) {
+        err.name = 'Number is not a safe integer!';
+        err.message = 'Precision may be lost.';
+        throw err;
+      } else {
+        validArgs.push(Math.floor(arg));
+      }
+    }
+    return validArgs;
   }
   // checks the validity of the sum
-  function validSum(sum) {
+  function validSum(min, max) {
     let err = {};
 
-    if (sum > Number.MAX_SAFE_INTEGER) {
+    if (!Number.isSafeInteger(range(min, max))) {
       err.name = 'The result exceeds the maximum safe integer valueexceeds the maximum safe integer value';
       err.message = 'There should not be such a wide range between numbers.';
       throw err;
     }
     else {
-      return sum;
+      return range(min, max);
     }
   }
 });
