@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   testPermut('1234');
   testPermut('aAa');
   testPermut('AaBa');
+  //testPermut('2ewarfsg45tDGHGJd'); // Call stack overflow
 
   function testPermut(str) {
     console.log(`The entered string: ${str};`);
