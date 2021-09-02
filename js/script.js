@@ -7,8 +7,8 @@ class Entity {
 }
 
 class Stuff extends Entity {
-  constructor(stuffName) {
-    super(stuffName)
+  constructor(name) {
+    super(name)
   }
 
   render() {
@@ -17,8 +17,8 @@ class Stuff extends Entity {
 }
 
 class Box extends Entity {
-  constructor(boxName) {
-    super(boxName)
+  constructor(name) {
+    super(name)
     this.boxStuff
   }
 
@@ -27,7 +27,7 @@ class Box extends Entity {
   }
 
   render() {
-    console.log(`Name: ${this.boxName}, ${this.boxStuff.name}`);
+    console.log(`Name: ${this.name}, ${this.boxStuff.name}`);
   }
 }
 
