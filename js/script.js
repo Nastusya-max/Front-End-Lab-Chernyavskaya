@@ -1,4 +1,4 @@
-let arr = [1, 2, 0, 4];
+let arr = [1, 2, 3, 4];
 console.log('One-dimensional array:\n', arr);
 console.log('Approximated one-dimensional array:\n', approx(arr));
 
@@ -9,18 +9,18 @@ console.log('Approximated two-dimensional array:\n',approx2D(arr2D));
 
 let arr3D = [
   [
-    [1, 2, 3],
-    [4, 5, 6],
+    [1, 2, 0],
+    [4, 0, 6],
     [7, 8, 9],
   ],
   [
     [1, 2, 3],
     [4, 1, 6],
-    [7, 5, 1],
+    [7, 5, 0],
   ],
   [
     [1, 2, 3],
-    [4, 5, 6],
+    [0, 5, 6],
     [7, 8, 9],
   ],
 ];
