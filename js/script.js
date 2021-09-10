@@ -37,7 +37,7 @@ function check(item) {
 }
 
 function approx(arr) {
-  arrApprox = new Array();
+  let arrApprox = new Array();
 
   arr.forEach(function (item, i, arr) {
     item = check(arr[i - 1]) + check(arr[i + 1]);
@@ -47,7 +47,7 @@ function approx(arr) {
 }
 
 function approx2D(arr) {
-  approx2D = new Array();
+  let approx2D = new Array();
 
   for (let i = 0; i < arr.length; i++) {
     approx2D[i] = new Array();
@@ -61,7 +61,7 @@ function approx2D(arr) {
 }
 
 function approx3D(arr) {
-  approx3D = new Array();
+  let approx3D = new Array();
 
   for (let i = 0; i < arr.length; i++) {
     approx3D[i] = new Array();
