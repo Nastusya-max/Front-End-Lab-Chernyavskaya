@@ -5,7 +5,7 @@ console.log('Approximated one-dimensional array:\n', approx(arr));
 
 let arr2D = [[0, 2, 3], [1, 5, 6], [7, 8, 0]];
 console.log('Two-dimensional array:\n', arr2D);
-console.log('Approximated two-dimensional array:\n',approx2D(arr2D));
+console.log('Approximated two-dimensional array:\n', approx2D(arr2D));
 
 let arr3D = [
   [
@@ -37,7 +37,7 @@ function check(item) {
 }
 
 function approx(arr) {
-  arrApprox = [];
+  arrApprox = new Array();
 
   arr.forEach(function (item, i, arr) {
     item = check(arr[i - 1]) + check(arr[i + 1]);
@@ -47,33 +47,33 @@ function approx(arr) {
 }
 
 function approx2D(arr) {
-  var approx2D = new Array();
+  approx2D = new Array();
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     approx2D[i] = new Array();
 
-    for (var j = 0; j < arr[i].length; j++) {
-      approx2D[i][j] = check(check(arr[i + 1])[j]) + check(check(arr[i - 1])[j]) + 
-      check(check(arr[i])[j - 1]) + check(check(arr[i])[j + 1]);
+    for (let j = 0; j < arr[i].length; j++) {
+      approx2D[i][j] = check(check(arr[i + 1])[j]) + check(check(arr[i - 1])[j]) +
+        check(check(arr[i])[j - 1]) + check(check(arr[i])[j + 1]);
     }
   }
   return approx2D;
 }
 
 function approx3D(arr) {
-  var approx3D = new Array();
+  approx3D = new Array();
 
-  for(var i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     approx3D[i] = new Array();
 
-    for(var j = 0; j < arr[i].length; j++){
+    for (let j = 0; j < arr[i].length; j++) {
       approx3D[i][j] = new Array();
 
-      for(var k = 0; k < arr[i][j].length; k++){
+      for (let k = 0; k < arr[i][j].length; k++) {
         // approx2D[i][j][k] =  data[i][j][k]; 
-        approx3D[i][j][k] =  check((check(check(arr[i + 1])[j]))[k]) + check((check(check(arr[i - 1])[j]))[k]) + 
-        check((check(check(arr[i])[j + 1]))[k]) + check((check(check(arr[i])[j - 1]))[k]) +
-        check((check(check(arr[i])[j]))[k + 1]) + check((check(check(arr[i])[j]))[k - 1]); 
+        approx3D[i][j][k] = check((check(check(arr[i + 1])[j]))[k]) + check((check(check(arr[i - 1])[j]))[k]) +
+          check((check(check(arr[i])[j + 1]))[k]) + check((check(check(arr[i])[j - 1]))[k]) +
+          check((check(check(arr[i])[j]))[k + 1]) + check((check(check(arr[i])[j]))[k - 1]);
       }
     }
   }
