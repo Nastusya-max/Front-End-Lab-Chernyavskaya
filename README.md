@@ -1,5 +1,6 @@
 # Homework
-* Implement function range(min,max) that can return sum of integer numbers in range [min,max]
-* Consider edge cases: result is greater than Number.MAX_SAFE_INTEGER, argument is not a number, min > max, etc.
-* *For performance reason add memoization mechanism
-* Push code to repo “Sum of Moore”
+* Using js construct on page Tic-Tac-Toe layout
+* Add possibility to interact with layout by mouse click (add “X” or “O”)
+* Add module that can write down on page game result (1st win, 2nd win or draw)
+* Push code to repo “Hennessey XO”
+
