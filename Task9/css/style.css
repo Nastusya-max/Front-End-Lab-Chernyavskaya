@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sue Ellen Francisco', cursive;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent 1px);
+  background-size: 30px 30px;
+}
+
+.container {
+  margin-bottom: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+.cell {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 54px;
+}
+
+#gameGrid {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 0 15px;
+  border-radius: 15px;
+  background-color:darkcyan;
+  color: white;
+  border-color:darkcyan;
+  font-size: 30px;
+  transition: 200ms transform;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translateY(-px);
+} 
+
