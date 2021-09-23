@@ -1,99 +1,99 @@
-let tblData = [{
-  number: 2,
-  land: 'Rumänien',
-  name: 'Peter'
-},
-{
-  number: 1,
-  land: 'Deutschland',
-  name: 'Dan'
-},
-{
-  number: 3,
-  land: 'USA',
-  name: 'Aaron'
-}
+const table = document.getElementById('table');
+const obj = [
+  {
+    id: 2,
+    name: 'ALex',
+    age: 23
+  },
+  {
+    id: 3,
+    name: 'Kyle',
+    age: 20
+  },
+  {
+    id: 1,
+    name: 'Isabel',
+    age: 17
+  },
+  {
+    id: 7,
+    name: 'Ann',
+    age: 12
+  },
+  {
+    id: 5,
+    name: 'Bell',
+    age: 32
+  },
+  {
+    id: 6,
+    name: 'Barry',
+    age: 46
+  },
 ];
 
-const getRow = (data) => `<tr><td>${data.number}</td><td>${data.land}</td><td>${data.name}</td></tr>`;
-
-const sortNumber = (a, b) => a.number - b.number;
-const sortLand = (a, b) => (a.land === b.land) ? 0 : (a.land > b.land) ? 1 : -1;
-const sortName = (a, b) => (a.name === b.name) ? 0 : (a.name > b.name) ? 1 : -1;
-
-function buildTable(data) {
-document.querySelector('tbody').innerHTML = data.map(row => getRow(row)).join('');
-}
-
-function sortTable(n) {
-let sort = sortNumber;
-switch (n) {
-  case 1:
-    sort = sortLand;
-    break;
-  case 2:
-    sort = sortName;
-}
-console.log(n);
-buildTable(tblData.sort(sort));
-}
-
-
-buildTable(tblData);
-
-
-let table = document.getElementById('table');
-
-let editingTd;
-
-table.onclick = function(event) {
-
-  // 3 возможных цели
-  let target = event.target.closest('.edit-cancel,.edit-ok,td');
-
-  if (!table.contains(target)) return;
-
-  if (target.className == 'edit-cancel') {
-    finishTdEdit(editingTd.elem, false);
-  } else if (target.className == 'edit-ok') {
-    finishTdEdit(editingTd.elem, true);
-  } else if (target.nodeName == 'TD') {
-    if (editingTd) return; // уже редактируется
-
-    makeTdEditable(target);
+const buildTable = (data) => {
+  for (let i = 0; i < data.length; i++) {
+    let row = `<tr>
+                  <td>${data[i].id}</td>
+                  <td>${data[i].name}</td>
+                  <td>${data[i].age}</td>
+                </tr>`;
+    document.getElementById('tableData').innerHTML += row;
   }
-
 };
 
-function makeTdEditable(td) {
-  editingTd = {
-    elem: td,
-    data: td.innerHTML
-  };
+const sortTable = (colNum, type) => {
+  let tbody = table.querySelector('tbody');
+  let rowsArray = Array.from(tbody.rows);
+  let compare;
 
-  td.classList.add('edit-td'); // td в состоянии редактирования, CSS применятся к textarea внутри ячейки
-
-  let textArea = document.createElement('textarea');
-  textArea.style.width = td.clientWidth + 'px';
-  textArea.style.height = td.clientHeight + 'px';
-  textArea.className = 'edit-area';
-
-  textArea.value = td.innerHTML;
-  td.innerHTML = '';
-  td.appendChild(textArea);
-  textArea.focus();
-
-  td.insertAdjacentHTML("beforeEnd",
-    '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
-  );
-}
-
-function finishTdEdit(td, isOk) {
-  if (isOk) {
-    td.innerHTML = td.firstChild.value;
-  } else {
-    td.innerHTML = editingTd.data;
+  switch (type) {
+    case 'number':
+      compare = function (rowA, rowB) {
+        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+      };
+      break;
+    case 'string':
+      compare = function (rowA, rowB) {
+        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+      };
+      break;
   }
-  td.classList.remove('edit-td');
-  editingTd = null;
+
+  rowsArray.sort(compare);
+
+  tbody.append(...rowsArray);
 }
+
+const editCell = (td) => {
+  let input = document.createElement('input');
+  input.value = td.innerHTML;
+  td.innerHTML = '';
+  td.appendChild(input);
+}
+
+const cancelEdit = () => {
+  let input = document.querySelector('input');
+  if (typeof (input) != 'undefined' && input != null) {
+    td = input.parentElement;
+    td.removeChild(input)
+    td.innerHTML = input.value;;
+  }
+}
+
+document.addEventListener('click', function (e) {
+  switch (e.target.tagName) {
+    case 'TH':
+      sortTable(e.target.cellIndex, e.target.dataset.type);
+      break;
+    case 'TD':
+      editCell(e.target);
+      break;
+    case 'BODY':
+      cancelEdit();
+      break;
+  }
+});
+
+buildTable(obj);
