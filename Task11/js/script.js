@@ -1,4 +1,4 @@
-const str = '1 2 10 + 1'
+const str = '1 2 10 + 1 - 2 :'
 
 let stack = [];
 
@@ -18,28 +18,23 @@ const subtract = () => {
   stack = [dif];
 }
 
-// const multiply = (arr) => {
-//   let newArr = []
-//   let sum = 0
-//   for (let i = 0; i < arr.length; i++) {
-//     sum *= arr[i]
-//   }
-//   newArr.push(sum)
-//   return newArr
-// }
+const multiply = () => {
+  let res = 1
+  for (let i = 0; i < stack.length; i++) {
+    res *= stack[i]
+  }
+  stack = [res];
+}
 
-// const divide = (arr) => {
-//   let newArr = []
-//   let sum = 0
-//   for (let i = 0; i < arr.length; i++) {
-//     sum /= arr[i]
-//   }
-//   newArr.push(sum)
-//   return newArr
-// }
+const divide = () => {
+  let res = stack[0]
+  for (let i = 1; i < stack.length; i++) {
+    res /= stack[i]
+  }
+  stack = [res];
+}
 
 const calcOper = (oper) => {
-  // console.log(stack)
   switch (oper) {
     case '+':
       add();
@@ -47,66 +42,29 @@ const calcOper = (oper) => {
     case '-':
       subtract();
       break;
-    // case '*':
-    //   add(stack);
-    //   break;
-    // case '*':
-    //   add(stack);
-    //   break;
+    case '*':
+      multiply();
+      break;
+    case ':':
+      divide();
+      break;
   }
-
-  // function add() {
-  //   let newArr = []
-  //   let sum = 0
-  //   // console.log(newArr);
-  //   for (let i = 0; i < stack.length; i++) {
-  //     sum += stack[i]
-  //   }
-  //   console.log(newArr);
-  //   return newArr.push(sum)
-  // }
 }
 
 const calculator = (str) => {
   str.split(' ').map(function (item, i, arr) {
     const regNum = new RegExp(/\d/)
-    const regOper = new RegExp(/[\+\-\*\\]/)
-    // switch (true) {
-    //   case regNum.test(item):
-    //     stack.push(+item)
-    //     break
-    //   case regOper.test(item):
-
-    const myPromise = new Promise((resolve, reject) => {
-
-      // resolve(() => {
-      
-      if (regOper.test(item)){
-        setTimeout(() => {
-          console.log(item)
-          resolve(item)
-        }, 300);
-      }else if (regNum.test(item)) {
-        console.log(item)
-        
-      } 
-      // })
-
-
-    });
-
-
-    myPromise
-      .then(() => {
-
-        console.log(arr)
-
-      }
-    )
-
+    const regOper = new RegExp(/[\+\-\*\:]/)
+    switch (true) {
+      case regNum.test(item):
+        stack.push(+item)
+        break
+      case regOper.test(item):
+        calcOper(item);
+        break
+    }
   })
-
 }
 
 calculator(str)
-// console.log(stack);
+console.log(stack);
