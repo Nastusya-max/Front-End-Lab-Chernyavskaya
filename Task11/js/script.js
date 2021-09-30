@@ -1,13 +1,13 @@
 const str = '1 2 10 + 1 - 2 :'
 
-let stack = [];
+let stack = []
 
 const add = () => {
-  let sum = 0;
+  let sum = 0
   for (let i = 0; i < stack.length; i++) {
-    sum += stack[i];
+    sum += stack[i]
   }
-  stack = [sum];
+  stack = [sum]
 }
 
 const subtract = () => {
@@ -15,7 +15,7 @@ const subtract = () => {
   for (let i = 1; i < stack.length; i++) {
     dif -= stack[i]
   }
-  stack = [dif];
+  stack = [dif]
 }
 
 const multiply = () => {
@@ -23,7 +23,7 @@ const multiply = () => {
   for (let i = 0; i < stack.length; i++) {
     res *= stack[i]
   }
-  stack = [res];
+  stack = [res]
 }
 
 const divide = () => {
@@ -31,40 +31,56 @@ const divide = () => {
   for (let i = 1; i < stack.length; i++) {
     res /= stack[i]
   }
-  stack = [res];
+  stack = [res]
 }
 
 const calcOper = (oper) => {
   switch (oper) {
     case '+':
-      add();
-      break;
+      add()
+      break
     case '-':
-      subtract();
-      break;
+      subtract()
+      break
     case '*':
-      multiply();
+      multiply()
       break;
     case ':':
-      divide();
-      break;
+      divide()
+      break
   }
 }
 
 const calculator = (str) => {
-  str.split(' ').map(function (item, i, arr) {
-    const regNum = new RegExp(/\d/)
-    const regOper = new RegExp(/[\+\-\*\:]/)
-    switch (true) {
-      case regNum.test(item):
-        stack.push(+item)
-        break
-      case regOper.test(item):
-        calcOper(item);
-        break
-    }
-  })
+  const regNum = new RegExp(/\d/)
+  const regOper = new RegExp(/[\+\-\*\:]/)
+
+  let arr = str.split(' ')
+
+  const calcAsync = (arr) => {
+    promise = new Promise((resolve, reject) => {
+      for (i = 0; i < arr.length; i++) {
+        if (regNum.test(arr[i])) {
+          stack.push(+arr[i])
+        } else if (regOper.test(arr[i])){
+          setTimeout(() => {
+            resolve(arr.slice(i, arr.length));
+          }, 3000);
+          break;
+        }
+      }
+    });
+  
+    promise.then((arr) => {
+      console.log(stack)
+      calcOper(arr[0]);
+      console.log(stack)
+      newArr = arr.slice(1, arr.length)
+      calcAsync(newArr)
+    });
+  }
+
+  calcAsync(arr)
 }
 
 calculator(str)
-console.log(stack);
