@@ -1,35 +1,35 @@
-const str = '1 2 10 + 1 - 2 :'
+const str = '2 2 + 2 3 * -48 : 2 10 -'
 
 let stack = []
 
 const add = () => {
   let sum = 0
-  for (let i = 0; i < stack.length; i++) {
-    sum += stack[i]
+  for (let i = stack.length; i > 0; i--) {
+    sum += stack[i-1]
   }
   stack = [sum]
 }
 
 const subtract = () => {
-  let dif = stack[0]
-  for (let i = 1; i < stack.length; i++) {
-    dif -= stack[i]
+  let dif = stack[stack.length-1]
+  for (let i = stack.length; i > 1; i--) {
+    dif -=  stack[i-2]
   }
   stack = [dif]
 }
 
 const multiply = () => {
-  let res = 1
-  for (let i = 0; i < stack.length; i++) {
-    res *= stack[i]
+  let res = stack[stack.length-1]
+  for (let i = stack.length; i > 1; i--) {
+    res *= stack[i-2]
   }
   stack = [res]
 }
 
 const divide = () => {
-  let res = stack[0]
-  for (let i = 1; i < stack.length; i++) {
-    res /= stack[i]
+  let res = stack[stack.length-1]
+  for (let i = stack.length; i > 1; i--) {
+    res /= stack[i-2]
   }
   stack = [res]
 }
