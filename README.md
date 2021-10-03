@@ -5,5 +5,5 @@
 * Push code to repo “quirk numbers”
 
 ## Instructions
-* Для деления испоьзуйте ":"
+* For division use ":"
 * Please write the whole expression at once, to enter a new expression you need to refresh the page, as the stack needs to be updated
