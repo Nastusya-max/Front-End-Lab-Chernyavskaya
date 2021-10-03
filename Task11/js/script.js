@@ -63,31 +63,19 @@ const calculator = (str) => {
         if (regNum.test(arr[i])) {
           stack.push(+arr[i])
         } else if (regOper.test(arr[i])){
-<<<<<<< HEAD
           console.log(`Stack before the operation "${arr[i]}" :`)
           console.log(stack)
           setTimeout(() => {
             resolve(arr.slice(i, arr.length));
           }, 3000)
           break
-=======
-          setTimeout(() => {
-            resolve(arr.slice(i, arr.length));
-          }, 3000);
-          break;
->>>>>>> 9c2207c27860400db4798a9d9c263404e85aef8a
         }
       }
     });
   
     promise.then((arr) => {
-<<<<<<< HEAD
       calcOper(arr[0])
       console.log(`Stack after the operation "${arr[0]}" (3s):`)
-=======
-      console.log(stack)
-      calcOper(arr[0]);
->>>>>>> 9c2207c27860400db4798a9d9c263404e85aef8a
       console.log(stack)
       newArr = arr.slice(1, arr.length)
       calcAsync(newArr)
@@ -97,8 +85,4 @@ const calculator = (str) => {
   calcAsync(arr)
 }
 
-<<<<<<< HEAD
 calculator(str)
-=======
-calculator(str)
->>>>>>> 9c2207c27860400db4798a9d9c263404e85aef8a
