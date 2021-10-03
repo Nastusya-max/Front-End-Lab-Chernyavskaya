@@ -66,7 +66,7 @@ const calculator = (str) => {
           console.log(`Stack before the operation "${arr[i]}" :`)
           console.log(stack)
           setTimeout(() => {
-            resolve(arr.slice(i, arr.length));
+            resolve(arr.slice(i, arr.length))
           }, 3000)
           break
         }
