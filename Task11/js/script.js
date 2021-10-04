@@ -79,18 +79,23 @@ const calculator = (str) => {
     });
 
     promise
-    .then((arr) => {
-      calcOper(arr[0])
-      console.log(`Stack after the operation "${arr[0]}" (3s):`)
-      console.log(stack)
-      document.querySelector(".output").innerHTML += `Result after the operation "${arr[0]}" (3s): ${stack} <br>`
-      newArr = arr.slice(1, arr.length)
-      calcAsync(newArr)
-    })
-    .catch(err => { console.log(err) });
+      .then((arr) => {
+        calcOper(arr[0])
+        console.log(`Stack after the operation "${arr[0]}" (3s):`)
+        console.log(stack)
+        document.querySelector(".output").innerHTML += `Result after the operation "${arr[0]}" (3s): ${stack} <br>`
+        newArr = arr.slice(1, arr.length)
+        calcAsync(newArr)
+      })
+      .catch(err => { console.log(err) });
   }
 
   calcAsync(arr)
 }
 
-btn.addEventListener('click', ()=>{calculator(inp.value)})
+btn.addEventListener('click', () => {
+  stack = []
+  calculator(inp.value)
+  document.querySelector(".output").innerHTML = ''
+})
+
