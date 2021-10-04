@@ -6,4 +6,5 @@
 
 ## Instructions
 * For division use ":"
-* Please write the whole expression at once, to enter a new expression you need to refresh the page, as the stack needs to be updated
+* Enter all numbers and signs of operations separated by a space. Example: '2 2 +'
+* To display the result, the expression must contain calculation operations (+, -, *, :)
