@@ -87,7 +87,7 @@ const calculator = (str) => {
         newArr = arr.slice(1, arr.length)
         calcAsync(newArr)
       })
-      .catch(err => { console.log(err) });
+      .catch(err => { console.log(err) })
   }
 
   calcAsync(arr)
