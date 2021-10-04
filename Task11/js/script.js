@@ -1,5 +1,5 @@
-const inp = document.querySelector('.inp');
-const btn = document.querySelector('.btn');
+const inp = document.querySelector('.inp')
+const btn = document.querySelector('.btn')
 
 const str = '2 2 + 2 3 * -48 : 2 10 -' //str for example
 
@@ -76,7 +76,7 @@ const calculator = (str) => {
           break
         }
       }
-    });
+    })
 
     promise
       .then((arr) => {
