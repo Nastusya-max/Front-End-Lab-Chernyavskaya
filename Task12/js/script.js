@@ -1,27 +1,31 @@
 const select = document.querySelector('.select-category')
 
 const getCategory = async () => {
+  let categories
   try {
     const res = await fetch('https://api.publicapis.org/categories')
     if (!res.ok) {
       throw new error(res.statusText)
     }
-    return res.json()
+    categories = await res.json()
   } catch ({ message }) {
     throw new Error(message)
   }
+  return categories
 }
 
 const getEntries = async (str) => {
+  let entries
   try {
     const res = await fetch(`https://api.publicapis.org/entries?category=${str}&https=true`)
     if (!res.ok) {
       throw new error(res.statusText)
     }
-    return res.json()
+    entries = await res.json()
   } catch ({ message }) {
     throw new Error(message)
   }
+  return entries
 }
 
 const outputCategory = (arr) => {
