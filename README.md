@@ -4,4 +4,4 @@
 * Handle possible error cases
 
 ## Attention
-To date, entrie do not contain "Title", so we display the "Description" and "API" of entries corresponding to the selected category
+In entrie no "title" only "API" (but, when specifying the URL, the "title" is used)
