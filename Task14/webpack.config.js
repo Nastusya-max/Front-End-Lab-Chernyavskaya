@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   mode: 'development',
-  entry: ['babel-polyfill','./assets/js/main.js'],
+  entry: ['babel-polyfill', './assets/js/main.js'],
   devtool: false,
   output: {
     filename: 'bundle.js',

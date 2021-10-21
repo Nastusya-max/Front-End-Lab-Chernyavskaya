@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 
-export const getData = async (str) => {
+export default async function (str) {
   let data
   try {
     const res = await fetch(str)
