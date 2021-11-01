@@ -32,14 +32,14 @@ window.onload = async () => {
     checkLogin()
   }
 
-  buttonTheme.onclick = function () {
+  buttonTheme.onclick = function() {
     body.classList.remove(localStorage.getItem('themeStyle'));
-    if (localStorage.getItem('themeStyle') == 'light-theme') {
+    if(localStorage.getItem('themeStyle') == 'light-theme') {
       localStorage.setItem('themeStyle', 'dark-theme')
     } else {
       localStorage.setItem('themeStyle', 'light-theme')
     }
-
+   
     body.classList.add(localStorage.getItem('themeStyle'));
   };
 
@@ -68,7 +68,8 @@ function checkLogin() {
     buttonLogin.innerHTML = 'Login'
   }
 
-  body.classList.add(localStorage.getItem('themeStyle'))
+  // if(localStorage.getItem('themeStyle') == 'dark-theme'){
+    body.classList.add(localStorage.getItem('themeStyle'))
 }
 
 
@@ -76,6 +77,6 @@ function checkStore() {
   if (localStorage.length == 0) {
     localStorage.setItem('area', '')
     localStorage.setItem('isLogin', 'false')
-    localStorage.setItem('themeStyle', 'light-theme')
+    localStorage.setItem('themeStyle', body.className)
   }
 }
