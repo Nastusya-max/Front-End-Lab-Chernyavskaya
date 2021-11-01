@@ -18,12 +18,37 @@ p {
 
 .output {
   font-family: "Open Sans", sans-serif;
-  color: #60606E;
   margin-top: 10px;
   margin-left: 30px;
   text-transform: initial;
 }
 
-option{
+/* option{
   color: #60606E;
+} */
+
+.light-theme .output{
+  color: #60606E;
+}
+
+.light-theme{
+ background-color: #fff;
+}
+
+.light-theme option{
+  color: #60606E;
+}
+
+
+
+.dark-theme .output{
+  color: #fff;
+}
+
+.dark-theme{
+ background-color: #60606E;
+}
+
+.dark-theme option{
+  color: #fff;
 }

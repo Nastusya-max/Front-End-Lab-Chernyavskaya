@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+// import 'whatwg-fetch'
 
 export default async function (str) {
   let data
