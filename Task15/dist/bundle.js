@@ -10767,7 +10767,7 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/core
 /******/ 	/* webpack/runtime/load script */
 /******/ 	!function() {
 /******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "task14-webpack:";
+/******/ 		var dataWebpackPrefix = "task15-webpack:";
 /******/ 		// loadScript function to load a script via script tag
 /******/ 		__webpack_require__.l = function(url, done, key, chunkId) {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
@@ -10928,7 +10928,7 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/core
 /******/ 		
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunktask14_webpack"] = self["webpackChunktask14_webpack"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunktask15_webpack"] = self["webpackChunktask15_webpack"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();
@@ -10982,13 +10982,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var selectCategory = document.querySelector('.select-category');
 var selecTitle = document.querySelector('.select-title');
 window.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-  var getData, UI;
+  var getData, UI, loginBtn, changeThemeBtn;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_whatwg-fetch_fetch_js"), __webpack_require__.e("assets_js_getData_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
+          return __webpack_require__.e(/*! import() */ "assets_js_getData_js").then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
 
         case 2:
           getData = _context.sent.default;
@@ -10997,6 +10997,19 @@ window.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.
 
         case 5:
           UI = _context.sent;
+          _context.next = 8;
+          return __webpack_require__.e(/*! import() */ "assets_js_Login_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Login.js */ "./assets/js/Login.js"));
+
+        case 8:
+          loginBtn = _context.sent.default;
+          _context.next = 11;
+          return __webpack_require__.e(/*! import() */ "assets_js_changeTheme_js").then(__webpack_require__.bind(__webpack_require__, /*! ./changeTheme.js */ "./assets/js/changeTheme.js"));
+
+        case 11:
+          changeThemeBtn = _context.sent.default;
+          // localStorage.clear()
+          loginBtn();
+          changeThemeBtn();
           getData('https://api.publicapis.org/categories').then(function (category) {
             new Promise(function (resolve) {
               resolve(UI.outputDropdown(category, 'category', selectCategory));
@@ -11008,7 +11021,7 @@ window.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.
             return console.log('Error:', message);
           });
 
-        case 7:
+        case 15:
         case "end":
           return _context.stop();
       }

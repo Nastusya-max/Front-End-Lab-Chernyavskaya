@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunktask14_webpack"] = self["webpackChunktask14_webpack"] || []).push([["assets_js_UI_js"],{
+(self["webpackChunktask15_webpack"] = self["webpackChunktask15_webpack"] || []).push([["assets_js_UI_js"],{
 
 /***/ "./assets/js/UI.js":
 /*!*************************!*\
@@ -39,7 +39,7 @@ var outputEntries = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_whatwg-fetch_fetch_js"), __webpack_require__.e("assets_js_getData_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
+            return __webpack_require__.e(/*! import() */ "assets_js_getData_js").then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
 
           case 2:
             getData = _context.sent.default;

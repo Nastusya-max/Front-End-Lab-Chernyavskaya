@@ -12,10 +12,15 @@
 </head>
 
 <body class="light-theme">
-  <button class="theme-button" type="button">Изменить тему</button>
-  <input id="area" placeholder="Напишите сообщение здесь"></input>
-  <button class="login"></button>
-  <p class="hello"></p>
+  <div class="container">
+    <button class="theme-button" type="button">Change theme</button>
+    <br>
+    <div class="login-container">
+      <input placeholder="Enter your name"></input>
+      <button class="login"></button>
+      <p class="hello"></p>
+    </div>
+  </div>
 
   <form class="form">
     <p>Category:</p>
@@ -30,7 +35,7 @@
     </select>
   </form>
   <div class="output"></div>
-  <script src="./assets/js/main.js"></script>
+  <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

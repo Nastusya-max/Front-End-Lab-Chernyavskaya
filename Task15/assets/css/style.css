@@ -5,11 +5,30 @@
   font-family: "Montserrat";
 }
 
-.form{
-  margin-left: 20px;
+.form, .container{
+  margin-left: 30px;
   text-align: left;
-  padding: 10px;
+  margin-top: 20px;
+}
+
+.login-container {
+  align-items: center;
+}
+
+button {
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.hello {
   margin-top: 10px;
+}
+
+input {
+  height: 25px;
 }
 
 p {
@@ -23,16 +42,16 @@ p {
   text-transform: initial;
 }
 
-/* option{
-  color: #60606E;
-} */
 
+
+/* Light-theme */
 .light-theme .output{
   color: #60606E;
 }
 
-.light-theme{
+.light-theme, button{
  background-color: #fff;
+ color: black;
 }
 
 .light-theme option{
@@ -41,14 +60,36 @@ p {
 
 
 
-.dark-theme .output{
-  color: #fff;
+/* Dark-theme */
+.dark-theme p{
+  color: #bdd6d0;
 }
 
-.dark-theme{
- background-color: #60606E;
+.dark-theme button{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme input{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme select{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme .output{
+  color: #bdd6d0;
 }
 
 .dark-theme option{
-  color: #fff;
+  background-color: #706a8d;
+  color: #bdd6d0;
 }
+
+.dark-theme {
+ background-color: #60606E;
+}
+
