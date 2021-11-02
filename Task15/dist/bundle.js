@@ -10988,7 +10988,7 @@ window.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return __webpack_require__.e(/*! import() */ "assets_js_getData_js").then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
+          return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_whatwg-fetch_fetch_js"), __webpack_require__.e("assets_js_getData_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ./getData.js */ "./assets/js/getData.js"));
 
         case 2:
           getData = _context.sent.default;
