@@ -1,0 +1,95 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+}
+
+.form, .container{
+  margin-left: 30px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.login-container {
+  align-items: center;
+}
+
+button {
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.hello {
+  margin-top: 10px;
+}
+
+input {
+  height: 25px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+.output {
+  font-family: "Open Sans", sans-serif;
+  margin-top: 10px;
+  margin-left: 30px;
+  text-transform: initial;
+}
+
+
+
+/* Light-theme */
+.light-theme .output{
+  color: #60606E;
+}
+
+.light-theme, button{
+ background-color: #fff;
+ color: black;
+}
+
+.light-theme option{
+  color: #60606E;
+}
+
+
+
+/* Dark-theme */
+.dark-theme p{
+  color: #bdd6d0;
+}
+
+.dark-theme button{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme input{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme select{
+  background-color: #33334f;
+  color: #bdd6d0;
+}
+
+.dark-theme .output{
+  color: #bdd6d0;
+}
+
+.dark-theme option{
+  background-color: #706a8d;
+  color: #bdd6d0;
+}
+
+.dark-theme {
+ background-color: #60606E;
+}
+
