@@ -1,0 +1,60 @@
+* {
+  text-transform: uppercase;
+  font-family: "Montserrat";
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+  padding: 10px;
+  margin-top: -20px;
+  height: 100px;
+  background-color: #3be9d2;
+}
+
+.output {
+  font-family: "Open Sans", sans-serif;
+  color: #60606e;
+  margin-top: 10px;
+  padding-left: 20px;
+  text-transform: initial;
+}
+
+p {
+  margin-left: 14px;
+  color: #fff;
+}
+
+.input__container {
+  width: 100%;
+  text-align: center;
+}
+
+.inp {
+  border: none;
+  width: 70%;
+  height: 35px;
+  text-align: left;
+  font-family: "Open sans", sans-serif;
+  color: #60606e;
+  text-transform: initial;
+}
+
+.btn {
+  color: #3be9d2;
+  background-color: #ffff;
+  padding: 10px 25px;
+}
+
+.btn:hover {
+  background-color: #ea6a6a;
+  color: #ffff;
+}
